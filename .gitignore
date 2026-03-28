@@ -1,0 +1,68 @@
+# ================================
+# ВИРТУАЛЬНОЕ ОКРУЖЕНИЕ
+# ================================
+.venv/
+venv/
+env/
+ENV/
+
+# ================================
+# PYTHON
+# ================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# ================================
+# IDE
+# ================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# ================================
+# ОС
+# ================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ================================
+# ЛОГИ И ОТЧЁТЫ
+# ================================
+*.log
+pytest-debug.log
+htmlcov/
+.coverage
+.coverage.*
+.xml
+report.html
+
+# ================================
+# СЕКРЕТЫ И КОНФИГ
+# ================================
+.env
+.env.local
+*.env
+secrets.json
+config.local.py

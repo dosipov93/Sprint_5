@@ -10,20 +10,21 @@ from selenium.webdriver.support.wait import WebDriverWait
 def driver():
     driver = webdriver.Chrome()
     driver.maximize_window()
-
     yield driver 
-
     driver.quit()
 
 
 @pytest.fixture()
 def wait(driver):
-    return WebDriverWait(driver, 5)
+    return WebDriverWait(driver, 7)
 
 @pytest.fixture()
 def base_url():
     return 'https://qa-desk.stand.praktikum-services.ru/'
 
+@pytest.fixture()
+def profile_url():
+    return 'https://qa-desk.stand.praktikum-services.ru/profile'
 
 @pytest.fixture()
 def random_valid_email():
@@ -41,7 +42,19 @@ def random_password():
 @pytest.fixture()
 def existing_user():
     return {
-        'email': 'registred_email@yandex.ru',
-        'password': 'QWerty0606',
-        'name': 'Test_user'
+        'email': 'test_user999@yandex.ru',
+        'password': 'Test123',
     }
+
+@pytest.fixture
+def random_price():
+    return random.randint(1000, 999999)
+
+@pytest.fixture()
+def create_add_list(random_price):
+    return {
+        'item_name': 'Монитор',
+        'description': 'Продаётся игровой монитор, торг уместен!',
+        'price': str(random_price)
+    }
+

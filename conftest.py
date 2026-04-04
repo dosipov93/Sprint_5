@@ -1,60 +1,32 @@
 import pytest
-import uuid
-import random
-import string
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
-
+from helpers import generate_data, generate_invalid_email, generate_password, generate_valid_email
 
 @pytest.fixture()
 def driver():
     driver = webdriver.Chrome()
     driver.maximize_window()
-    yield driver 
+    yield driver
+    driver.delete_all_cookies()
     driver.quit()
-
-
+    
 @pytest.fixture()
 def wait(driver):
     return WebDriverWait(driver, 7)
 
 @pytest.fixture()
-def base_url():
-    return 'https://qa-desk.stand.praktikum-services.ru/'
-
-@pytest.fixture()
-def profile_url():
-    return 'https://qa-desk.stand.praktikum-services.ru/profile'
-
-@pytest.fixture()
 def random_valid_email():
-    return uuid.uuid4().hex[:7]+'@yandex.ru'
+    return generate_valid_email()
 
 @pytest.fixture()
 def random_invalid_email():
-    return uuid.uuid4().hex[:7]+'yandex.u'
+    return generate_invalid_email()
 
 @pytest.fixture()
 def random_password():
-    chars = string.ascii_letters + string.digits + "!@#$%"
-    return ''.join(random.choice(chars) for _ in range(9))
+    return generate_password()
 
 @pytest.fixture()
-def existing_user():
-    return {
-        'email': 'test_user999@yandex.ru',
-        'password': 'Test123',
-    }
-
-@pytest.fixture
-def random_price():
-    return random.randint(1000, 999999)
-
-@pytest.fixture()
-def create_add_list(random_price):
-    return {
-        'item_name': 'Монитор',
-        'description': 'Продаётся игровой монитор, торг уместен!',
-        'price': str(random_price)
-    }
-
+def new_ad_data():
+    return generate_data()

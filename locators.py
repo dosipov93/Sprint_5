@@ -21,7 +21,7 @@ class AuthModalLocators:
 
 class CreateAdLocators:
     CREATE_AD_BTN = (By.XPATH, ".//button[contains(text(), 'Разместить объявление')]") # Кнопка 'Разместить объявление' 
-    CREATE_AD_MODAL = (By.XPATH, ".//h1[contains(text(), 'авторизуйтесь')]") # Модальное окно 'Авторизируйтесь что бы разместить объявление'
+    CREATE_AD_MODAL = (By.XPATH, ".//h1[contains(text(), 'Чтобы разместить объявление, авторизуйтесь')]") # Модальное окно 'Авторизируйтесь что бы разместить объявление'
     ITEM_NAME_FIELD = (By.NAME, 'name') # Поле ввода названия обэвления
     CONDITION_NEW_RADIO = (By.XPATH, ".//div[contains(@class, 'radioUnput_input')]/label[contains(text(), Новый)]") # Состояние RabioButton - 'Новый'
     CONDITION_USED_RADIO = (By.XPATH, "//label[text()='Б/У']") # Состояние RabioButton - 'Б/У'

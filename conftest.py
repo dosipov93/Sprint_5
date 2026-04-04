@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from helpers import generate_data, generate_invalid_email, generate_password, generate_valid_email
 
-@pytest.fixture()
+@pytest.fixture
 def driver():
     driver = webdriver.Chrome()
     driver.maximize_window()
@@ -11,22 +11,22 @@ def driver():
     driver.delete_all_cookies()
     driver.quit()
     
-@pytest.fixture()
+@pytest.fixture
 def wait(driver):
     return WebDriverWait(driver, 7)
 
-@pytest.fixture()
+@pytest.fixture
 def random_valid_email():
     return generate_valid_email()
 
-@pytest.fixture()
+@pytest.fixture
 def random_invalid_email():
     return generate_invalid_email()
 
-@pytest.fixture()
+@pytest.fixture
 def random_password():
     return generate_password()
 
-@pytest.fixture()
+@pytest.fixture
 def new_ad_data():
     return generate_data()
